@@ -1,29 +1,33 @@
-import React from 'react'
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { SignedIn, UserButton } from '@clerk/nextjs';
+
 import MobileNav from './MobileNav';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   return (
     <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
-      <Link href='/' className='flex items-center gap-1'>
-      <Image src={'/icons/logo.svg'} width={32} height={32} alt='Yoom logo' className='max-sm:size-10'/>
-      <p className='text-[26px] text-white font-bold max-sm:hidden'>Yoom</p>
-      
+      <Link href="/" className="flex items-center gap-1">
+        <Image
+          src="/icons/logo.svg"
+          width={32}
+          height={32}
+          alt="yoom logo"
+          className="max-sm:size-10"
+        />
+        <p className="text-[26px] font-extrabold text-white max-sm:hidden">
+          YOOM
+        </p>
       </Link>
-      <div className="flex-between gap-5 text-white">
-      <SignedOut >
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-       <MobileNav />
+      <div className="flex-between gap-5">
+        <SignedIn>
+          <UserButton afterSignOutUrl="/sign-in" />
+        </SignedIn>
 
+        <MobileNav />
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

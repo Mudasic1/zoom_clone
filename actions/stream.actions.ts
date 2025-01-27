@@ -3,8 +3,8 @@
 import { currentUser } from '@clerk/nextjs/server';
 import { StreamClient } from '@stream-io/node-sdk';
 
-const STREAM_API_KEY = "ue72yrxg39ea";
-const STREAM_API_SECRET = "ynxefbrnf3wgpdyevewpm7fe9urea2e68mgsawewynfze4768tptb8jcv2vur8cy";
+const STREAM_API_KEY = "sveswvhvsjwe";
+const STREAM_API_SECRET = "tppzr989264ygbs3wbzbx448pjd7u7dvgu5qs58zjd3eger928ekvdhwabwhj7gb";
 
 export const tokenProvider = async () => {
   const user = await currentUser();
